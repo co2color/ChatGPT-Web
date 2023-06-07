@@ -28,19 +28,12 @@ function handleClick() {
 </script>
 
 <template>
-  <div v-if="showTooltip">
-    <NTooltip :placement="placement" trigger="hover">
-      <template #trigger>
-        <Button @click="handleClick">
-          <slot />
-        </Button>
-      </template>
-      {{ tooltip }}
-    </NTooltip>
-  </div>
-  <div v-else>
-    <Button @click="handleClick">
-      <slot />
-    </Button>
-  </div>
+  <NTooltip :disabled="!showTooltip" :placement="placement" trigger="hover">
+    <template #trigger>
+      <Button @click="handleClick">
+        <slot />
+      </Button>
+    </template>
+    {{ tooltip }}
+  </NTooltip>
 </template>
